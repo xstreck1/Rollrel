@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DestroySelf : MonoBehaviour {
-	private float time = 5f;
+	private float time = 3f;
 	private readonly float DISSAPEAR_TIME = 1f;
 	private SpriteRenderer renderer;
 
