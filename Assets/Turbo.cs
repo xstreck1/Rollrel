@@ -4,9 +4,9 @@ using System.Collections;
 public class Turbo : MonoBehaviour {
 	private Transform TurboCounter;
 	private float turbo_amount = 1f;
-	private readonly float TURBO_PER_SECOND = 0.5f;
-	private readonly Vector2 push = new Vector2(3000f, 0f);
-	private readonly float max_velocity = 100f;
+	private readonly float TURBO_PER_SECOND = 0.1f;
+	private readonly Vector2 push = new Vector2(1000f, 0f);
+	private readonly float max_velocity = 75f;
 
 	// Use this for initialization
 	void Start () {
