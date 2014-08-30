@@ -6,6 +6,7 @@ public class CreateLine : MonoBehaviour
 	private Vector3 last_point = Vector3.zero;
 	private Object line;
 	private Camera camera;
+	private float line_height = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +25,7 @@ public class CreateLine : MonoBehaviour
 				Vector3 instantiation = last_point + ((new_point - last_point) / 2f);
 				GameObject new_line = (GameObject)Instantiate (line, instantiation, Quaternion.FromToRotation(Vector3.right, last_point - new_point));
 				Vector3 new_scale = new_line.transform.localScale * distance;
-				new_scale.y = 1f;
+				new_scale.y = line_height;
 				new_line.transform.localScale = new_scale;
 				Debug.Log ("x: " + new_point.x + ", y: " + new_point.y);		
 			}

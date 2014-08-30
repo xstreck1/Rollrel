@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StabilizeLight : MonoBehaviour {
+public class DestroySelf : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = transform.parent.position + new Vector3(-2, 2, -5);
+	
+	}
+
+	void OnBecameInvisible() {
+		Destroy(this.gameObject);
 	}
 }
