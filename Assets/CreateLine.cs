@@ -7,7 +7,7 @@ public class CreateLine : MonoBehaviour
 	private Object line;
 	private Camera camera;
 	private float line_height = 1f;
-	private float sphere_radius = 3.75f;
+	private float sphere_radius = 3.5f;
 
 	// Use this for initialization
 	void Start () {
