@@ -3,48 +3,35 @@ using System.Collections;
 
 public class CreateLine : MonoBehaviour
 {
-		private Vector3 last_point = Vector3.zero;
-		private Object line;
-		private Camera camera;
+	private Vector3 last_point = Vector3.zero;
+	private Object line;
+	private Camera camera;
 
-		// Use this for initialization
-		void Start ()
-		{
-				line = Resources.Load ("line");
-				camera = GameObject.Find ("Camera").GetComponent<Camera> ();
-		}
+	// Use this for initialization
+	void Start () {
+		line = Resources.Load ("line");
+		camera = GameObject.Find ("Camera").GetComponent<Camera> ();
+	}
 	
 		// Update is called once per frame
-		void FixedUpdate ()
-		{
-				if (Input.GetMouseButtonDown (0)) {
-						last_point = camera.ScreenToWorldPoint (Input.mousePosition);
-				} else if (Input.GetMouseButtonUp (0)) {
-						last_point = Vector3.zero;
-				} else if (Input.GetMouseButton (0) && last_point != Vector3.zero) {
-						Vector3 new_point = camera.ScreenToWorldPoint (Input.mousePosition);
-						new_point.z = 0f;
+	void FixedUpdate () {
+		if (Input.GetMouseButton (0)) {
+			Vector3 new_point = camera.ScreenToWorldPoint (Input.mousePosition);
+			if (last_point != Vector3.zero) {
+				new_point.z = 0f;
 
-
-						float distance = Vector3.Distance (new_point, last_point);
-						GameObject new_line = (GameObject)Instantiate (line, last_point, Quaternion.identity);
-						Vector3 new_scale = new_line.transform.localScale * distance;
-						new_scale.y = 1f;
-						new_line.transform.localScale = new_scale;
-
-						// new_line.transform.LookAt(new_point, Vector3.left);
-						Debug.Log ("x: " + new_point.x + ", y: " + new_point.y);
-						last_point = new_point;
-				}
+				float distance = Vector3.Distance (new_point, last_point);
+				Vector3 instantiation = last_point + ((new_point - last_point) / 2f);
+				GameObject new_line = (GameObject)Instantiate (line, instantiation, Quaternion.FromToRotation(Vector3.right, last_point - new_point));
+				Vector3 new_scale = new_line.transform.localScale * distance;
+				new_scale.y = 1f;
+				new_line.transform.localScale = new_scale;
+				Debug.Log ("x: " + new_point.x + ", y: " + new_point.y);		
+			}
+			last_point = new_point;
+			last_point.z = 0f;
 		}
-
-		void OnMouseDown ()
-		{
-
-		}
-
-		void OnMouseUp ()
-		{
-
-		}
+		else
+			last_point = Vector3.zero;
+	}
 }
