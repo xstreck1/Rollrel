@@ -26,6 +26,8 @@ ExportedObj/
 *.user
 *.unityproj
 *.booproj
+*CSharp*
+*csharp*
 
 # ============ #
 # OS generated #
