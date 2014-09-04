@@ -10,13 +10,22 @@ public class GameControl : EditorWindow
     List<Vector2> positions = new List<Vector2>();
     int current_position = 0;
 
+    void addPositions()
+    {
+        positions.Clear();
+        positions.Add(new Vector2(0, 0));
+        positions.Add(new Vector2(150, -20));
+        positions.Add(new Vector2(260, -30));
+        positions.Add(new Vector2(330, -50));
+        positions.Add(new Vector2(400, -43));
+        positions.Add(new Vector2(750, -190));
+    }
+
     void OnEnable()
     {
         character = GameObject.Find("Character");
         camera = GameObject.Find("Camera");
-        positions.Clear();
-        positions.Add(new Vector2(0, 0));
-        positions.Add(new Vector2(150, -20));
+        addPositions();
     }
 
     // Add menu item named "My Window" to the Window menu
@@ -36,7 +45,7 @@ public class GameControl : EditorWindow
     void OnGUI()
     {
         EditorGUILayout.TextField("Positions available: " + positions.Count);
-        EditorGUILayout.TextField("Current position: " + current_position);
+        EditorGUILayout.TextField("Current position: " + (current_position + 1));
 
         if (GUILayout.Button("Next position"))
         {

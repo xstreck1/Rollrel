@@ -21,4 +21,10 @@ public class CharacterControl : MonoBehaviour {
         if (other.tag == "finish")
             this.SendMessage("finish");
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "enemy")
+            this.SendMessage("restart");
+    }
 }

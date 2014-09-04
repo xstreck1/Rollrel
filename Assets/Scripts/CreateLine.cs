@@ -9,9 +9,9 @@ public class CreateLine : MonoBehaviour
     // Total amount of source is 1, should be kept on this
     private float source_amount = 1f;
     // How much turbo is used per metric unit
-    public float SOURCE_CONSUME_PER_UNIT = 0.01f;
+    public float SOURCE_CONSUME_PER_UNIT = 0.015f;
     // How much turbo is used per second
-    public float SOURCE_REPLENISH_PER_SECOND = 0.25f;
+    public float SOURCE_REPLENISH_PER_SECOND = 0.20f;
     // How much is used for initial draw
     public float INITIAL_CONSUME = 0.10f;
 
