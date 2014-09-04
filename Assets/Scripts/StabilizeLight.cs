@@ -7,13 +7,13 @@ public class StabilizeLight : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		position = transform.position;
+		position = transform.localPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Put the camera where it was + prohibit rotation
 		transform.rotation = Quaternion.identity;
-		transform.position = transform.parent.position + position;
+		transform.localPosition = position;
 	}
 }

@@ -10,8 +10,8 @@ public class CharacterControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.R))
-            this.SendMessage("restart");
+        if (Input.GetKey(KeyCode.R) || Input.touchCount > 1)
+            SendMessage("restart");
     }
 
     void OnTriggerEnter2D(Collider2D other)
